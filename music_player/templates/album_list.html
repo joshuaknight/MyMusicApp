@@ -1,0 +1,25 @@
+{% include "index.html" %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load staticfiles %}
+
+{% block header %}
+	<style type="text/css">		
+		.container{
+			padding:100px;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	
+<div class="container">
+	<div class="row">	
+	<div class="col-sm-6">	
+	<div class="thumbnail">		
+	<img src= "{% static '/media/sd.jpg' %}" class="photo" />	
+	</div><!-- /thumbnail -->	
+	</div>
+</div>
+{% endblock %}

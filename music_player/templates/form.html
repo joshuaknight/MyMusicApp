@@ -1,0 +1,30 @@
+{% include "index.html" %}
+{% load static %}
+{% load bootstrap3 %}
+{% block title %}
+{% endblock %}
+{% block header %}
+	<style type="text/css">
+		#add{
+			padding:100px;
+		}
+	</style>
+{% endblock %}
+{% block content %}
+	{% bootstrap_form_errors form %}
+	<form id="add" role="form" action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="container">
+			{{ form.managment_form }}
+			{{ form.media }}
+			{% bootstrap_form form layout="horizontal" %}
+			{% buttons submit=key reset='CANCEL' layout="horizontal" %}
+			{% endbuttons %}
+			</div>
+	</form>
+		
+{% endblock %}
+
+{% block footer %}
+{{q}}	
+{% endblock %}
