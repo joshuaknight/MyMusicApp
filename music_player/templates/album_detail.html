@@ -1,0 +1,113 @@
+
+{% include "index.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block header %}
+	
+	<style type="text/css">
+		#album-detail{
+			padding:100px;			
+		}
+		.detail-scape{
+			
+		}			
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/script.js'%}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+	<div class="breadcrumb" id="album-detail" >
+	<a href="{% url 'album' %}">{% bootstrap_icon 'chevron-left' %}</a>
+		{% thumbnail album.album.album_photo "400x400" crop="center" as im %}		
+		<img src= "/static/media/{{im}}" width="{{ im.width }}" height="{{ im.height }}" />		
+		{% endthumbnail %}		
+
+		<div class="detail-scape">
+		<h3>Artist  <a href="{% url 'artist-detail' album.artist.artist_name %}">{{album.artist.artist_name}} </a></h3>		
+		<h3>Album Name {{album.album.album_name}}</h3>
+		</div>
+		<h3>To Play The Full Album ?<button class="button btn-success">Click Here</button></h3> 
+		<br />
+		<br />		
+		<div class="myaudio1">
+		 <audio controls>
+		  <source src="/static/media/{{album.album.song1}}" type="audio/ogg"></audio>		 
+		</div>
+		<div class="myaudio2">
+		 <audio controls>
+		  <source src="/static/media/{{album.album.song2}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio3">
+		 <audio controls>
+		  <source src="/static/media/{{album.album.song3}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio4">
+		 <audio controls>
+		  <source src="/static/media/{{album.album.song4}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio5">
+		 <audio controls>
+		  {{album.album_name_key.song5}}<source src="/static/media/{{album.album.song5}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio6">
+		 <audio controls>
+		  {{album.album_name_key.song6}}<source src="/static/media/{{album.album.song6}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio7">
+		 <audio controls>
+		  {{album.album_name_key.song7}}<source src="/static/media/{{album.album.song7}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio8">
+		 <audio controls>
+		  {{album.album_name_key.song8}}<source src="/static/media/{{album.album.song8}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio9">
+		 <audio controls>
+		  {{album.album_name_key.song9}}<source src="/static/media/{{album.album.song9}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio10">
+		 <audio controls>
+		  {{album.album_name_key.song10}}<source src="/static/media/{{album.album.song10}}" type="audio/ogg"></audio>		 
+		</div>		
+		<div class="myaudio11">
+		 <audio controls>
+		  {{album.album_name_key.song11}}<source src="/static/media/{{album.album.song11}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio12">
+		 <audio controls>
+		  {{album.album_name_key.song12}}<source src="/static/media/{{album.album.song12}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio13">
+		 <audio controls>
+		  {{album.album_name_key.song13}}<source src="/static/media/{{album.album.song13}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio14">
+		 <audio controls>
+		  {{album.album_name_key.song14}}<source src="/static/media/{{album.album.song14}}" type="audio/ogg"></audio>		 
+		</div>	
+		<div class="myaudio15">
+		 <audio controls>
+		  {{album.album_name_key.song15}}<source src="/static/media/{{album.album.song15}}" type="audio/ogg"></audio>		 
+		</div>			
+		<br />
+		<br />					
+	</div>			
+{% endblock %}
+
+
+{% block footer %}
+	<hr />
+{% endblock %}

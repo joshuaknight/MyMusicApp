@@ -3,23 +3,31 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block header %}
 	<style type="text/css">		
-		.container{
+		.breadcrumb{
 			padding:100px;
-		}
+		}		
 	</style>
+
 {% endblock %}
+
 
 {% block content %}
 	
-<div class="container">
-	<div class="row">	
-	<div class="col-sm-6">	
-	<div class="thumbnail">		
-	<img src= "{% static '/media/sd.jpg' %}" class="photo" />	
-	</div><!-- /thumbnail -->	
-	</div>
+<div class="breadcrumb" id="album-detail" >
+		{% for i in album %}
+		
+		{% thumbnail i.album.album_photo "300x300" crop="center" as im %}		
+		<a href="{% url 'album-detail' i.slug %}">
+		<img src= "/static/media/{{im}}" width="{{ im.width }}" height="{{ im.height }}" />		
+		</a>
+		{% endthumbnail %}	
+		{% endfor %}
+		
 </div>
+
+
 {% endblock %}

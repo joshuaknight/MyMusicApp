@@ -1,0 +1,47 @@
+
+{% include "index.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block header %}
+	
+	<style type="text/css">
+		#album-detail{
+			padding:100px;			
+		}
+		.detail-scape{
+			
+		}			
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/script.js'%}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+	<div class="breadcrumb" id="album-detail" >	
+		{% thumbnail artist.artist_photo "400x400" crop="center" as im %}		
+		<img src= "/static/media/{{im}}" width="{{ im.width }}" height="{{ im.height }}" />		
+		{% endthumbnail %}				
+		<div class="detail-scape">
+		<h3>Artist Name {{artist.artist_name}}</h3>		
+		<h3>Artist Origin {{artist.artist_place}}</h3>		
+		<h3>Artist Date {{artist.artist_date}}</h3>						
+		<h3>Artist Album <br/>{% for x in artist.artist_album_list.all %}{{ x }}<br/>{% endfor %}</h3>						
+	</div>			
+{% endblock %}
+
+
+{% block footer %}
+	<hr />
+{% endblock %}

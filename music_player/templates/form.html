@@ -4,11 +4,20 @@
 {% block title %}
 {% endblock %}
 {% block header %}
+{% load crispy_forms_tags %}
 	<style type="text/css">
 		#add{
-			padding:100px;
+			padding:100px;			
 		}
 	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('p').mouseenter(function(){
+				$('p').css({'background-color' : 'red'});
+			});	
+
+		});
+	</script>
 {% endblock %}
 {% block content %}
 	{% bootstrap_form_errors form %}
@@ -17,11 +26,14 @@
 		<div class="container">
 			{{ form.managment_form }}
 			{{ form.media }}
-			{% bootstrap_form form layout="horizontal" %}
+			{% bootstrap_form artist layout="horizontal" %}
+			{% bootstrap_form form layout="horizontal" %}		
+			{% bootstrap_form album layout="horizontal" %}
 			{% buttons submit=key reset='CANCEL' layout="horizontal" %}
 			{% endbuttons %}
 			</div>
 	</form>
+		<p class="addme">Power It Up</p>
 		
 {% endblock %}
 
